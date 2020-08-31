@@ -1,0 +1,44 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Display"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="reverse_order"
+            app:title="Recent items to top"
+            app:summary="Add recent items to top of the screen"
+            app:iconSpaceReserved="false"/>
+
+
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="scroll_to_bottom"
+            app:title="Auto scroll to bottom"
+            app:summary="Scroll to bottom if recent items are added to bottom of the screen"
+            app:iconSpaceReserved="false"/>
+
+
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="item_numbers"
+            app:title="Hide item numbers"
+            app:summary="Hide item numbers from the list"
+            app:iconSpaceReserved="false"/>
+
+
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/grid_entries"
+            android:entryValues="@array/grid_values"
+            app:iconSpaceReserved="false"
+            app:key="columns"
+            app:title="Grid layout columns"
+            app:useSimpleSummaryProvider="true" />
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

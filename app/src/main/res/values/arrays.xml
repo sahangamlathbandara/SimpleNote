@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="grid_entries">
+        <item>2 items</item>
+        <item>3 items</item>
+        <item>4 items</item>
+    </string-array>
+
+    <string-array name="grid_values">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>

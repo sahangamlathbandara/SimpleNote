@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/notes_icon_shortcut"
+        android:shortcutDisabledMessage="@string/new_note"
+        android:shortcutId="short1"
+        android:shortcutLongLabel="@string/new_note"
+        android:shortcutShortLabel="@string/new_note"
+        tools:ignore="UnusedAttribute">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.example.bnotes.AddNotes"
+            android:targetPackage="com.example.bnotes" />
+        <categories
+            android:name="android.shortcut.conversation" />
+    </shortcut>
+
+
+</shortcuts>
+
+

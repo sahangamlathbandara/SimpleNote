@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_item_count"
+        android:orderInCategory="1"
+        android:title=""
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_clear"
+        android:orderInCategory="2"
+        android:title="@string/clear"
+        android:icon="@drawable/ic_baseline_clear_24"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_grid"
+        android:orderInCategory="3"
+        android:icon="@drawable/ic_baseline_grid_on_24"
+        app:showAsAction="always"
+        android:checkable="true"
+        android:checked="true"
+        android:title="@string/grid_style"/>
+
+    <item
+        android:id="@+id/action_delete"
+        android:orderInCategory="4"
+        android:title="@string/delete"
+        android:icon="@drawable/ic_baseline_delete_24"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_share"
+        android:orderInCategory="5"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/share"/>
+
+    <item android:id="@+id/action_settings"
+        android:orderInCategory="6"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Settings"/>
+
+</menu>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    tools:context=".AddNotes">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/inputButton"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="4dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <EditText
+            android:id="@+id/inputTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:autofillHints=""
+            android:background="#00FFFFFF"
+            android:ems="10"
+            android:hint="@string/title"
+            android:inputType="textPersonName"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inputSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:autofillHints=""
+            android:background="#00FFFFFF"
+            android:ems="10"
+            android:hint="@string/subject"
+            android:inputType="textPersonName"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:linksClickable="true"
+            android:autoLink="web|email"/>
+
+        <EditText
+            android:id="@+id/inputLink"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/note"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textSize="16sp" />
+        <!--android:justificationMode="inter_word"-->
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/inputButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/round_button"
+        android:text="@string/add"
+        android:textColor="#FFFFFF" />
+
+
+</RelativeLayout>
