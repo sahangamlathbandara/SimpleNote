@@ -3,12 +3,14 @@ package com.example.bnotes;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.selection.SelectionTracker;
@@ -59,11 +61,35 @@ public class MainActivity extends AppCompatActivity {
     protected SharedPreferences.Editor editor;
     BottomNavigationView bottomNavigationView;
     BottomNavigationItemView select,deselectAll;
-    Boolean StateSelectAll = false;
+    Boolean stateSelectAll = false;
+    String theme;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        theme = sharedPreferences.getString("dark_mode_on", "3");
+
+        if (theme == "1") AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        if (theme == "2") AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        if (theme == "3") {
+            int sysTheme = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            switch (sysTheme) {
+                case Configuration.UI_MODE_NIGHT_NO:
+                    // Night mode is not active on device
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    break;
+                case Configuration.UI_MODE_NIGHT_YES:
+                    // Night mode is active on device
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    break;
+            }
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -114,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         setSharedPref();
+
+
 
         layoutChange(sharedPreferences.getBoolean("relayout", false));
         //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
@@ -220,14 +248,14 @@ public class MainActivity extends AppCompatActivity {
 
                 //bottomNavigationView.setVisibility(View.VISIBLE);
                 bottomNavigationView.getMenu().getItem(0).setTitle("Deselect All").setIcon(R.drawable.ic_baseline_check_box_24);
-                StateSelectAll = true;
+                stateSelectAll = true;
 
             }
             else {
 
                 //bottomNavigationView.setVisibility(View.GONE);
                 bottomNavigationView.getMenu().getItem(0).setTitle("Select All").setIcon(R.drawable.ic_baseline_check_box_outline_blank_24);
-                StateSelectAll = false;
+                stateSelectAll = false;
             }
 
 
@@ -384,7 +412,7 @@ public class MainActivity extends AppCompatActivity {
         DataBase myDB = new DataBase(this);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
-        Cursor cursor = null;
+        Cursor cursor;
 
         if (!sharedPreferences.getBoolean("reverse_order", false)) {
             cursor = myDB.readAllData();
@@ -573,7 +601,9 @@ public class MainActivity extends AppCompatActivity {
 
                 finish();
                 deleteSelectedItems();
+                //overridePendingTransition(0,0);
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
+                //overridePendingTransition(0,0);
 
 
             }
@@ -671,23 +701,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void bottomMenuItemsChange(){
-
-
-        select = (BottomNavigationItemView)findViewById(R.id.bottom_action_select);
-
-
-        if(selectionTracker.getSelection().size() > 0){
-
-
-        }
-
-
-
-
-
-    }
-
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -707,11 +720,11 @@ public class MainActivity extends AppCompatActivity {
                     //deselectAll.setVisibility(View.VISIBLE);
                     //selectAll.setVisibility(View.GONE);
 
-                    if (StateSelectAll){
+                    if (stateSelectAll){
 
                         item.setIcon(ContextCompat.getDrawable(MainActivity.this,R.drawable.ic_baseline_check_box_outline_blank_24));
                         //bottomNavigationView.getMenu().getItem(R.id.bottom_action_select).setChecked(false);
-                        StateSelectAll = false;
+                        stateSelectAll = false;
 
                         bottomNavigationView.setSelectedItemId(R.id.invisible);
                         selectionTracker.clearSelection();
@@ -723,7 +736,7 @@ public class MainActivity extends AppCompatActivity {
 
                     } else {
 
-                        StateSelectAll = true;
+                        stateSelectAll = true;
 
                         //bottomNavigationView.getMenu().getItem(R.id.bottom_action_select).setChecked(true);
                         bottomNavigationView.setSelectedItemId(R.id.invisible);

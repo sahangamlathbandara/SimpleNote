@@ -1,29 +1,16 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/shapeColor</item>
         <item name="colorPrimaryDark">@color/shapeColor</item>
         <item name="colorAccent">@color/shapeColor</item>
         <item name="actionMenuTextAppearance">@style/actionMenuTextAppearance</item>
         <item name="alertDialogTheme">@style/MyAlertDialogStyle</item>
+
+
+
     </style>
-
-
-
-    <style name="AppTheme.Dark" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/shapeColor</item>
-        <item name="colorPrimaryDark">@color/shapeColor</item>
-        <item name="colorAccent">@color/shapeColor</item>
-        <item name="actionMenuTextAppearance">@style/actionMenuTextAppearance</item>
-        <item name="alertDialogTheme">@style/MyAlertDialogStyle</item>
-    </style>
-
-
-
-
-
 
     <style name="actionMenuTextAppearance">
         <item name="textAllCaps">false</item>

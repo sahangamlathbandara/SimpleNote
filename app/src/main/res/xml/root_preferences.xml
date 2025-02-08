@@ -29,6 +29,16 @@
 
 
         <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/theme_select"
+            app:entryValues="@array/theme_values"
+            android:key="dark_mode_on"
+            android:title="Dark Mode"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false"/>
+
+
+        <ListPreference
             android:defaultValue="2"
             android:entries="@array/grid_entries"
             android:entryValues="@array/grid_values"

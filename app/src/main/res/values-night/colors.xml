@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="shapeColor">#61196E</color>
+    <color name="letters">#364F6B</color>
+    <color name="white">#302F2F</color>
+
+
+
+    <color name="noteRowTitle">#202124</color>
+    <color name="noteRowNote">#616164</color>
+    <color name="noteInside">#212121</color>
+
+
+
+    <color name="selected_background">#ffbcc3</color>
+</resources>
